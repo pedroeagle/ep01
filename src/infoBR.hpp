@@ -6,7 +6,9 @@ using namespace std;
 class Candidato{
 public:
 	Candidato(int linha);
-	char cargo[4096], *nomeUrna, *nomeCandidato, *partido, *lema;
+	string cargo, *nomeUrna, *nomeCandidato, *partido, *lema;
 	long int *numeroUrna;
+	string get_cargo();
 };
+
 #endif
