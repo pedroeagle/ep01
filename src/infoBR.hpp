@@ -4,11 +4,11 @@
 using namespace std;
 
 class Candidato{
-public:
-	Candidato(int linha);
-	string cargo, *nomeUrna, *nomeCandidato, *partido, *lema;
+	public:
+	char *cargo, *nomeUrna, *nomeCandidato, *partido, *lema;
 	long int *numeroUrna;
-	string get_cargo();
+	char get_cargo(int linha);
+	Candidato(int linha);
 };
 
 #endif

@@ -3,8 +3,8 @@
 using namespace std;
 int main(int argc, char **argv){
 
-	Candidato *bolsonaro = new Candidato(2);
-	cout<<bolsonaro->get_cargo();
+	Candidato bolsonaro();
+	cout<<bolsonaro.get_cargo(2);
 
 return 0;
 }
