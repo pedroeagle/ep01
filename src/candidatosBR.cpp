@@ -1,4 +1,4 @@
-#include "infoBR.hpp"
+#include "candidatosBR.hpp"
 #include <stdio.h>
 #include <string>
 #include <iostream>
@@ -14,8 +14,8 @@ int size(){
 	fseek(info, inicio, SEEK_SET);
 	return tamanho;
 }
-Candidato::Candidato(){
-		while(fgetc(info)!='\n');
+void CandidatoBR::registro_candidatos(){
+	while(fgetc(info)!='\n');
 	int i = 0;
 	while(i < 32){
 		if(i == 14){
@@ -36,11 +36,4 @@ Candidato::Candidato(){
 		while(fgetc(info)!=';');
 		i++;
 	}
-};
-void Candidato::imprimir_dados(){
-	cout<<cargo<<endl;
-	cout<<numeroUrna<<endl;
-	cout<<nomeCandidato<<endl;
-	cout<<partido<<endl;
-	cout<<lema<<endl;
 };
