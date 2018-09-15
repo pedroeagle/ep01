@@ -3,8 +3,8 @@
 #include "candidatos.hpp"
 #include <iostream>
 	class CandidatoDF : public Candidato{
-	public:
-		void registro_candidatos();
+	//public:
+		//void registro_candidatos();
 	};
 
 #endif

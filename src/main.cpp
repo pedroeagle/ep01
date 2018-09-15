@@ -1,19 +1,41 @@
 #include "candidatosBR.hpp"
 #include "candidatosDF.hpp"
+#include "eleitores.hpp"
 using namespace std;
 int main(int argc, char **argv){
-	int maior = 0;
+	FILE *infoBR = fopen("../info_csv/BR.csv", "r");
+	FILE *infoDF = fopen("../info_csv/DF.csv", "r");
 	CandidatoBR *candidatosBR[26];
 	for(int i = 0; i <= 25; i++){
 		candidatosBR[i] = new CandidatoBR();
-		candidatosBR[i]->registro_candidatos();
+		candidatosBR[i]->registro_candidatos(infoBR, 26);
 	}
 	CandidatoDF *candidatosDF[1237];
 	for(int i = 0; i <= 1236; i++){
 		candidatosDF[i] = new CandidatoDF();
-		candidatosDF[i]->registro_candidatos();
+		candidatosDF[i]->registro_candidatos(infoDF, 1237);
+		candidatosDF[i]->imprimir_dados();
 	}
-	
+
+	while(1){
+		int n;
+		cout<<"Mesário, por favor digite a quantidade de eleitores e pressione ENTER:"<<endl;
+		cin>>n;
+		getchar();
+		char aux[43];
+		Eleitor *eleitor[n];
+		for(int i = 0; i < n; i++){
+			eleitor[i] = new Eleitor();
+			cout<<"Eleitor, por favor, digite o seu nome e pressione ENTER:"<<endl;
+			fgets(aux, 42, stdin);
+			eleitor[i]->set_nome(aux);
+			cout<<"SEU VOTO PARA"<<endl;
+			cout<<"			DEPUTADO FEDERAL"<<endl;
+			cout<<"NÚMERO: ";
+		}
+
+		break;
+	}
 
 return 0;
 }

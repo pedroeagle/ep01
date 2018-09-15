@@ -4,8 +4,8 @@
 #include "candidatos.hpp"
 
 class CandidatoBR: public Candidato{
-	public:
-	void registro_candidatos();
+	//public:
+	//void registro_candidatos();
 };
 
 #endif

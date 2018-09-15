@@ -4,14 +4,27 @@
 using namespace std;
 
 class Candidato{//classe que armazenará todas as informações de cada candidato
-public:
-	char cargo[43], nomeCandidato[43], partido[43], lema[43], numeroUrna[6]; //variáveis que armazenarão as informações dos candidatos
+private:
 	short qtd;
+	string cargo, nomeCandidato, partido, lema, numeroUrna;
+public:
 	Candidato(); //Método Construtor
 	~Candidato(); //Método Destrutor
-	void virtual registro_candidatos() = 0; //método virtual de registro dos candidatos. candidatos BR utilizam arquivo					
-	void imprimir_dados();					//diferente dos candidatos DF
-	int size(FILE *info);					//função size que retorna a quantidade de caracteres que serão lidos
-	};										//com a função fgets; pretendo utilizar essa função para fazer alocação de
-											//memória										
+	void registro_candidatos(FILE *info, int linhas);	
+	void imprimir_dados();
+	int size(FILE *info);
+
+	//getters and setters
+	void set_cargo(char cargoIn[43]);
+	string get_cargo();
+	void set_nomeCandidato(char nomeCandidatoIn[43]);
+	string get_nomeCandidato();
+	void set_partido(char partido[43]);
+	string get_partido();
+	void set_lema(char lema[43]);
+	string get_lema();
+	void set_numeroUrna(char numeroUrna[6]);
+	string get_numeroUrna();
+	};										
+																				
 #endif

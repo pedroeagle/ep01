@@ -1,30 +1,36 @@
 #include "candidatosDF.hpp"
-FILE *infoDF = fopen("../info_csv/DF.csv", "r");
-void CandidatoDF::registro_candidatos(){
+
+/*void CandidatoDF::registro_candidatos(){
 	while(fgetc(infoDF)!='\n');
+	char aux[43];
 	int i = 0;
 	while(i < 32){
 		if(i == 14){
 			qtd = Candidato::size(infoDF);
-			fgets(cargo, qtd, infoDF);
+			fgets(aux, qtd, infoDF);
+			Candidato::set_cargo(aux);
 		}
 		if(i==16){
 			qtd = Candidato::size(infoDF);
-			fgets(numeroUrna, qtd, infoDF);
+			fgets(aux, qtd, infoDF);
+			Candidato::set_numeroUrna(aux);
 		}
 		if(i == 17){
 			qtd = Candidato::size(infoDF);
-			fgets(nomeCandidato, qtd, infoDF);
+			fgets(aux, qtd, infoDF);
+			Candidato::set_nomeCandidato(aux);
 		}
 		if(i == 29){
 			qtd = Candidato::size(infoDF);
-			fgets(partido, qtd, infoDF);
+			fgets(aux, qtd, infoDF);
+			Candidato::set_partido(aux);
 		}
 		if(i == 31){
 			qtd = Candidato::size(infoDF);
-			fgets(lema, qtd, infoDF);
+			fgets(aux, qtd, infoDF);
+			Candidato::set_lema(aux);
 		}
 		while(fgetc(infoDF)!=';');
 		i++;
 	}
-};
+};*/
