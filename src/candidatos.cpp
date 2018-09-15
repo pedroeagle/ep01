@@ -56,30 +56,40 @@ void Candidato::imprimir_dados(){
 	cout<<partido<<endl;
 	cout<<lema<<endl;
 };
+
+
 void Candidato::set_cargo(char cargoIn[43]){
 	this->cargo = cargoIn;
 }
 string Candidato::get_cargo(){
 	return cargo;
 }
+
+
 void Candidato::set_nomeCandidato(char nomeCandidatoIn[43]){
 	this->nomeCandidato = nomeCandidatoIn;
 }
 string Candidato::get_nomeCandidato(){
 	return nomeCandidato;
 }
+
+
 void Candidato::set_partido(char partidoIn[43]){
 	this->partido = partidoIn;
 }
 string Candidato::get_partido(){
 	return partido;
 }
+
+
 void Candidato::set_lema(char lemaIn[43]){
 	this->lema = lemaIn;
 }
 string Candidato::get_lema(){
 	return lema;
 }
+
+
 void Candidato::set_numeroUrna(char numeroUrnaIn[6]){
 	this->numeroUrna = numeroUrnaIn;
 }

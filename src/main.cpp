@@ -1,18 +1,17 @@
-#include "candidatosBR.hpp"
-#include "candidatosDF.hpp"
+#include "candidatos.hpp"
 #include "eleitores.hpp"
 using namespace std;
 int main(int argc, char **argv){
 	FILE *infoBR = fopen("../info_csv/BR.csv", "r");
 	FILE *infoDF = fopen("../info_csv/DF.csv", "r");
-	CandidatoBR *candidatosBR[26];
+	Candidato *candidatosBR[26];
 	for(int i = 0; i <= 25; i++){
-		candidatosBR[i] = new CandidatoBR();
+		candidatosBR[i] = new Candidato();
 		candidatosBR[i]->registro_candidatos(infoBR, 26);
 	}
-	CandidatoDF *candidatosDF[1237];
+	Candidato *candidatosDF[1237];
 	for(int i = 0; i <= 1236; i++){
-		candidatosDF[i] = new CandidatoDF();
+		candidatosDF[i] = new Candidato();
 		candidatosDF[i]->registro_candidatos(infoDF, 1237);
 		candidatosDF[i]->imprimir_dados();
 	}
