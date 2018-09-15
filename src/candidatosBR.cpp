@@ -2,38 +2,34 @@
 #include <stdio.h>
 #include <string>
 #include <iostream>
-using namespace std;
-FILE *info = fopen("../info_csv/BR.csv", "r");
-int size(){
-	fgetc(info);
-	int inicio, fim, tamanho;
-	inicio = ftell(info);
-	while(fgetc(info)!='"');
-	fim = ftell(info);
-	tamanho = fim-inicio;
-	fseek(info, inicio, SEEK_SET);
-	return tamanho;
-}
+
+FILE *infoBR = fopen("../info_csv/BR.csv", "r");
 void CandidatoBR::registro_candidatos(){
-	while(fgetc(info)!='\n');
+	while(fgetc(infoBR)!='\n');
 	int i = 0;
 	while(i < 32){
 		if(i == 14){
-			fgets(cargo, size(), info);
+			qtd = Candidato::size(infoBR);
+			fgets(cargo, qtd, infoBR);
 		}
 		if(i==16){
-			fgets(numeroUrna, size(), info);
+			qtd = Candidato::size(infoBR);
+			fgets(numeroUrna, qtd, infoBR);
 		}
 		if(i == 17){
-			fgets(nomeCandidato, size(), info);
+			qtd = Candidato::size(infoBR);
+			fgets(nomeCandidato, qtd, infoBR);
 		}
 		if(i == 29){
-			fgets(partido, size(), info);
+			qtd = Candidato::size(infoBR);
+			fgets(partido, qtd, infoBR);
 		}
 		if(i == 31){
-			fgets(lema, size(), info);
+			qtd = Candidato::size(infoBR);
+			fgets(lema, qtd, infoBR);
 		}
-		while(fgetc(info)!=';');
+		while(fgetc(infoBR)!=';');
 		i++;
 	}
+
 };
