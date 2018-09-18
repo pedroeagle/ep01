@@ -2,8 +2,8 @@
 #include "eleitores.hpp"
 using namespace std;
 int main(int argc, char **argv){
-	FILE *infoBR = fopen("../info_csv/BR.csv", "r");
-	FILE *infoDF = fopen("../info_csv/DF.csv", "r");
+	FILE *infoBR = fopen("../data/consulta_cand_2018_BR.csv", "r");
+	FILE *infoDF = fopen("../data/consulta_cand_2018_DF.csv", "r");
 	Candidato *candidatosBR[26];
 	for(int i = 0; i <= 25; i++){
 		candidatosBR[i] = new Candidato();
