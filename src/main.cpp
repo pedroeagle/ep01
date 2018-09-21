@@ -1,5 +1,5 @@
-#include "candidatos.hpp"
-#include "eleitores.hpp"
+#include "../inc/candidatos.hpp"
+#include "../inc/eleitores.hpp"
 using namespace std;
 int main(int argc, char **argv){
 	FILE *infoBR = fopen("../data/consulta_cand_2018_BR.csv", "r");

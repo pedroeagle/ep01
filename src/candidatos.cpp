@@ -1,4 +1,4 @@
-#include "candidatos.hpp"
+#include "../inc/candidatos.hpp"
 #include <cstring>
 Candidato::Candidato(){
 }
