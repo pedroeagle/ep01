@@ -1,5 +1,5 @@
-#include "../inc/candidatos.hpp"
-#include <cstring>
+#include <candidatos.hpp>
+#include <cstdio>
 Candidato::Candidato(){
 }
 Candidato::~Candidato(){
@@ -16,6 +16,9 @@ int Candidato::size(FILE *info){ //retorna a quantidade de caracteres que serão
 	return tamanho;
 }
 void Candidato::registro_candidatos(FILE *info, int linhas){
+	/*if(info == NULL){
+		throw(1);
+	}*/
 	while(fgetc(info)!='\n');
 	char aux[43];
 	int i = 0;
@@ -55,7 +58,7 @@ void Candidato::imprimir_dados(){
 	cout<<nomeCandidato<<endl;
 	cout<<partido<<endl;
 	cout<<lema<<endl;
-};
+}
 
 
 void Candidato::set_cargo(char cargoIn[43]){

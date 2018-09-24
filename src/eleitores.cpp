@@ -1,4 +1,4 @@
-#include "../inc/eleitores.hpp"
+#include <eleitores.hpp>
 #include <iostream>
 using namespace std;
 Eleitor::Eleitor(){

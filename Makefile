@@ -10,9 +10,9 @@ OBJFOLDER := obj/
 CC := g++
 
 # CFLAGS correto abaixo!
-#CFLAGS := -W -Wall -ansi -pedantic
+CFLAGS := -W -Wall -ansi -pedantic
 # A linha abaixo está incorreta!!!
-CFLAGS := 
+#CFLAGS :=
 
 # Qualquer coisa de extensão .cpp
 SRCFILES := $(wildcard src/*.cpp)
