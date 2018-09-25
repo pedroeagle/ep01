@@ -21,7 +21,6 @@ class Eleitor{
 		void set_votoDistrital(char voto[6]);
 		string get_votoDistrital();
 		void voto(char cargo[43], char voto[6]);
-
 };
 
 #endif

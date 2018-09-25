@@ -1,5 +1,6 @@
 #ifndef candidatos_hpp
 #define candidatos_hpp
+#include <urna.hpp>
 #include <iostream>
 using namespace std;
 
@@ -7,7 +8,7 @@ class Candidato{//classe que armazenará todas as informações de cada candidat
 private:
 	short qtd;
 	int votos = 0, numeroUrna;
-	string cargo, nomeCandidato, partido, lema/*, numeroUrna*/;
+	string cargo, nomeCandidato, partido, lema;
 public:
 	Candidato(); //Método Construtor
 	~Candidato(); //Método Destrutor
