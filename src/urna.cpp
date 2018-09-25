@@ -1,6 +1,5 @@
-#include <urna.hpp>
-#include <candidatos.hpp>
 #include <cstring>
+#include <urna.hpp>
 using namespace std;
 Candidato *candidatosDF[1237];
 Candidato *candidatosBR[26];
@@ -26,11 +25,13 @@ void Urna::leitura_de_dadosDF(const char *path){
 		candidatosDF[i]->registro_candidatos(info, 1237);
 	}
 }
-void votacaoDF(string cargo, int voto){
+int Urna::votacaoDF(const string cargo, const int voto){
 	for(int i = 0; i <= 1236; i++){
 		if(cargo == candidatosDF[i]->get_cargo() && voto == candidatosDF[i]->get_numeroUrna()){
 			candidatosDF[i]->set_votos();
-			break;
+			candidatosDF[i]->imprimir_dados();
+			return 0;
 		}
 	}
+	return 1;
 }

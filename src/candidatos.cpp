@@ -60,6 +60,7 @@ void Candidato::imprimir_dados(){
 	cout<<nomeCandidato<<endl;
 	cout<<partido<<endl;
 	cout<<lema<<endl;
+	cout<<votos<<endl;
 }
 
 
@@ -101,6 +102,7 @@ void Candidato::set_numeroUrna(int numeroUrna){
 int Candidato::get_numeroUrna(){
 	return numeroUrna;
 }
+
 void Candidato::set_votos(){
 	votos++;
 }

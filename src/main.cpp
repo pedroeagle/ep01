@@ -9,11 +9,10 @@ int main(int argc, char **argv){
 	urna.leitura_de_dadosBR("../data/consulta_cand_2018_BR.csv");
 	urna.leitura_de_dadosDF("../data/consulta_cand_2018_DF.csv");
 	while(1){
-		int define;
+		int n;
 		cout<<"Mesário, por favor digite a quantidade de eleitores e pressione ENTER:"<<endl;
-		cin>>define;
+		cin>>n;
 		getchar();
-		const int n = define;
 		char aux[43];
 		int voto;
 		Eleitor *eleitor[1000];
@@ -26,9 +25,9 @@ int main(int argc, char **argv){
 			cout<<"			DEPUTADO FEDERAL"<<endl;
 			cout<<"NÚMERO: ";
 			cin>>voto;
+			getchar();
 			urna.votacaoDF("DEPUTADO FEDERAL", voto);
 		}
-
 		break;
 	}
 

@@ -55,10 +55,3 @@ void Eleitor::set_votoDistrital(char voto[6]){
 string Eleitor::get_votoDistrital(){
 	return this->votoDistrital;
 }
-/*void Eleitor::voto(char cargo[43], char voto[6]){
-	for(int i = 0; i <= 1236; i++){
-		if(strcmp(this->cargo, cargo) == 0 && strcmp(numeroUrna, voto) == 0){
-			votos++;
-		}
-	}
-}*/
