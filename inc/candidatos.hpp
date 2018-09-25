@@ -6,7 +6,8 @@ using namespace std;
 class Candidato{//classe que armazenará todas as informações de cada candidato
 private:
 	short qtd;
-	string cargo, nomeCandidato, partido, lema, numeroUrna;
+	int votos = 0, numeroUrna;
+	string cargo, nomeCandidato, partido, lema/*, numeroUrna*/;
 public:
 	Candidato(); //Método Construtor
 	~Candidato(); //Método Destrutor
@@ -15,16 +16,18 @@ public:
 	int size(FILE *info);
 
 	//getters and setters
-	void set_cargo(char cargoIn[43]);
-	string get_cargo();
-	void set_nomeCandidato(char nomeCandidatoIn[43]);
+	void set_cargo(char cargo[43]);
+	string  get_cargo();
+	void set_nomeCandidato(char nomeCandidato[43]);
 	string get_nomeCandidato();
 	void set_partido(char partido[43]);
 	string get_partido();
 	void set_lema(char lema[43]);
 	string get_lema();
-	void set_numeroUrna(char numeroUrna[6]);
-	string get_numeroUrna();
+	void set_numeroUrna(int numeroUrna);
+	int get_numeroUrna();
+	void set_votos();
+	int get_votos();
 	};										
 																				
 #endif

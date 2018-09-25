@@ -21,6 +21,7 @@ void Candidato::registro_candidatos(FILE *info, int linhas){
 	}*/
 	while(fgetc(info)!='\n');
 	char aux[43];
+	int n;
 	int i = 0;
 	while(i < 32){
 		if(i == 14){
@@ -30,8 +31,9 @@ void Candidato::registro_candidatos(FILE *info, int linhas){
 		}
 		if(i==16){
 			qtd = Candidato::size(info);
-			fgets(aux, qtd, info);
-			Candidato::set_numeroUrna(aux);
+			fscanf(info, "%d", &n);
+			//fgets(aux, qtd, info);
+			Candidato::set_numeroUrna(n);
 		}
 		if(i == 17){
 			qtd = Candidato::size(info);
@@ -61,16 +63,16 @@ void Candidato::imprimir_dados(){
 }
 
 
-void Candidato::set_cargo(char cargoIn[43]){
-	this->cargo = cargoIn;
+void Candidato::set_cargo(char cargo[43]){
+	this->cargo = cargo;
 }
 string Candidato::get_cargo(){
 	return cargo;
 }
 
 
-void Candidato::set_nomeCandidato(char nomeCandidatoIn[43]){
-	this->nomeCandidato = nomeCandidatoIn;
+void Candidato::set_nomeCandidato(char nomeCandidato[43]){
+	this->nomeCandidato = nomeCandidato;
 }
 string Candidato::get_nomeCandidato(){
 	return nomeCandidato;
@@ -93,9 +95,15 @@ string Candidato::get_lema(){
 }
 
 
-void Candidato::set_numeroUrna(char numeroUrnaIn[6]){
-	this->numeroUrna = numeroUrnaIn;
+void Candidato::set_numeroUrna(int numeroUrna){
+	this->numeroUrna = numeroUrna;
 }
-string Candidato::get_numeroUrna(){
+int Candidato::get_numeroUrna(){
 	return numeroUrna;
+}
+void Candidato::set_votos(){
+	votos++;
+}
+int Candidato::get_votos(){
+	return votos;
 }
