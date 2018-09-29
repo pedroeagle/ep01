@@ -1,5 +1,7 @@
 #include <candidatos.hpp>
+#include <urna.hpp>
 #include <cstdio>
+using namespace std;
 Candidato::Candidato(){
 }
 Candidato::~Candidato(){
@@ -15,7 +17,7 @@ int Candidato::size(FILE *info){ //retorna a quantidade de caracteres que serão
 	fseek(info, inicio, SEEK_SET);
 	return tamanho;
 }
-void Candidato::registro_candidatos(FILE *info, int linhas){
+void Candidato::registro_candidatos(FILE *info){
 	/*if(info == NULL){
 		throw(1);
 	}*/
@@ -24,6 +26,11 @@ void Candidato::registro_candidatos(FILE *info, int linhas){
 	int n;
 	int i = 0;
 	while(i < 32){
+		if(i == 12){
+			qtd = Candidato::size(info);
+			fgets(aux, qtd, info);
+			Candidato::set_nm_ue(aux);
+		}
 		if(i == 14){
 			qtd = Candidato::size(info);
 			fgets(aux, qtd, info);
@@ -50,17 +57,16 @@ void Candidato::registro_candidatos(FILE *info, int linhas){
 			fgets(aux, qtd, info);
 			Candidato::set_lema(aux);
 		}
+		Candidato::votos = 0;
 		while(fgetc(info)!=';');
 		i++;
 	}
 }
 void Candidato::imprimir_dados(){
-	cout<<cargo<<endl;
-	cout<<numeroUrna<<endl;
-	cout<<nomeCandidato<<endl;
-	cout<<partido<<endl;
-	cout<<lema<<endl;
-	cout<<votos<<endl;
+	cout<<"Nome: "<<nomeCandidato<<endl;
+	cout<<"Partido: "<<partido<<endl;
+	cout<<"Lema: "<<lema<<endl;
+	cout<<"Cargo: "<<cargo<<" do "<<nm_ue<<endl;	
 }
 
 
@@ -108,4 +114,10 @@ void Candidato::set_votos(){
 }
 int Candidato::get_votos(){
 	return votos;
+}
+void Candidato:: set_nm_ue(char nm_ue[18]){
+	this->nm_ue = nm_ue;
+}
+string Candidato::get_nm_ue(){
+	return nm_ue;
 }

@@ -7,12 +7,12 @@ using namespace std;
 class Candidato{//classe que armazenará todas as informações de cada candidato
 private:
 	short qtd;
-	int votos = 0, numeroUrna;
-	string cargo, nomeCandidato, partido, lema;
+	int votos, numeroUrna;
+	string cargo, nomeCandidato, partido, lema, nm_ue;
 public:
 	Candidato(); //Método Construtor
 	~Candidato(); //Método Destrutor
-	void registro_candidatos(FILE *info, int linhas);	
+	void registro_candidatos(FILE *info);	
 	void imprimir_dados();
 	int size(FILE *info);
 
@@ -29,6 +29,8 @@ public:
 	int get_numeroUrna();
 	void set_votos();
 	int get_votos();
+	void set_nm_ue(char nm_ue[18]);
+	string get_nm_ue();
 	};										
 																				
 #endif
