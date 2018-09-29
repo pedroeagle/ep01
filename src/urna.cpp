@@ -1,10 +1,8 @@
-#include <cstring>
-#include <stdio.h>
+#include <candidatos.hpp>
 #include <urna.hpp>
-#include <cstdio>
-#include <string.h>
-#include <stdlib.h>
+
 using namespace std;
+
 Candidato *candidatosDF[1237];
 Candidato *candidatosBR[26];
 void Urna::leitura_de_dadosBR(const char *path){
@@ -29,10 +27,38 @@ void Urna::leitura_de_dadosDF(const char *path){
 		candidatosDF[i]->registro_candidatos(info);
 	}
 }
-int Urna::votacaoDF(const string cargo, const int voto){
+int Urna::votacaoDF(const string cargo, const char *votoX){
 	char aux;
+	char voto[8];
+	if(votoX[0] >= 'A'){
+		for(int j = 0; votoX[j]!='\0'; j++){
+			voto[j] = toupper(votoX[j]);
+		}
+	}
+	else{
+		strcpy(voto, votoX);
+	}
 	for(int i = 0; i <= 1236; i++){
-		if(cargo == "DEPUTADO DISTRITAL" && voto == 00000){
+		//DEPUTADO DISTRITAL: BRANCOS E NULOS:
+		if(cargo == "DEPUTADO DISTRITAL" && strcmp(voto, "00000") == 0){
+			cout<<"Voto NULO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::nulo[0]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "DEPUTADO DISTRITAL" && strcmp(voto, "BRANCO") == 0 ){
+			cout<<"Voto BRANCO.\n"<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
 				aux = toupper(getchar());
@@ -48,7 +74,27 @@ int Urna::votacaoDF(const string cargo, const int voto){
 				}
 			}
 		}
-		else if(cargo == "DEPUTADO FEDERAL" && voto == 0000){
+
+		//DEPUTADO FEDERAL: BRANCOS E NULOS
+		else if(cargo == "DEPUTADO FEDERAL" && strcmp(voto, "0000") == 0){
+			cout<<"Voto NULO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::nulo[1]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "DEPUTADO FEDERAL" && strcmp(voto, "BRANCO") == 0){
+			cout<<"Voto BRANCO.\n"<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
 				aux = toupper(getchar());
@@ -64,7 +110,27 @@ int Urna::votacaoDF(const string cargo, const int voto){
 				}
 			}
 		}
-		else if(cargo == "SENADOR" && voto == 000){
+
+		//SENADOR: BRANCOS E NULOS
+		else if(cargo == "SENADOR" && strcmp(voto, "000") == 0){
+			cout<<"Voto NULO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::nulo[2]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "SENADOR" && strcmp(voto, "BRANCO") == 0){
+			cout<<"Voto BRANCO.\n"<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
 				aux = toupper(getchar());
@@ -80,7 +146,27 @@ int Urna::votacaoDF(const string cargo, const int voto){
 				}
 			}
 		}
-		else if(cargo == "GOVERNADOR" && voto == 00){
+
+		//GOVERNADOR: BRANCOS E NULOS
+		else if(cargo == "GOVERNADOR" && strcmp(voto, "00") == 0){
+			cout<<"Voto NULO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::nulo[3]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "GOVERNADOR" && strcmp(voto, "BRANCO") == 0){
+			cout<<"Voto BRANCO.\n"<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
 				aux = toupper(getchar());
@@ -96,7 +182,6 @@ int Urna::votacaoDF(const string cargo, const int voto){
 				}
 			}
 		}
-
 		else if(cargo == candidatosDF[i]->get_cargo() && voto == candidatosDF[i]->get_numeroUrna()){
 			candidatosDF[i]->imprimir_dados();
 			cout<<endl;
@@ -118,14 +203,41 @@ int Urna::votacaoDF(const string cargo, const int voto){
 		}
 
 	}	
-			system("clear");
-			cout<<"Candidato não encontrado. Tente novamente."<<endl;
+	system("clear");
+	cout<<"Candidato não encontrado. Tente novamente."<<endl;
 	return 1;
 }	
-int Urna::votacaoBR(const string cargo, const int voto){
+int Urna::votacaoBR(const string cargo, const char *votoX){
 	char aux;
+	char voto[8];
+	if(votoX[0] >= 'A'){
+		for(int j = 0; votoX[j]!='\0'; j++){
+			voto[j] = toupper(votoX[j]);
+		}
+	}
+	else{
+		strcpy(voto, votoX);
+	}
 	for(int i = 0; i <= 25; i++){
-		if(cargo == "PRESIDENTE" && voto == 00){
+		if(cargo == "PRESIDENTE" && strcmp(voto, "00") == 0){
+			cout<<"Voto NULO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::nulo[4]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "PRESIDENTE" && strcmp(voto, "BRANCO") == 0){
+			cout<<"Voto BRANCO.\n"<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
 				aux = toupper(getchar());
@@ -162,13 +274,13 @@ int Urna::votacaoBR(const string cargo, const int voto){
 		}
 
 	}	
-			system("clear");
-			cout<<"Candidato não encontrado. Tente novamente."<<endl;
+	system("clear");
+	cout<<"Candidato não encontrado. Tente novamente."<<endl;
 	return 1;
 }
 int Urna::resultado(){
 	cout<<"Mesário, pressione R e logo após, ENTER, para visualizar e finalizar a seção."<<endl;
-	cout<<"Pressione X e logo após, ENTER, para finalizar a secão sem visualizar o resultado."<<endl;
+	cout<<"Pressione X e logo após, ENTER, para finalizar a seção sem visualizar o resultado."<<endl;
 	char aux;
 	while(1){
 		aux = toupper(getchar());

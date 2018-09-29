@@ -1,6 +1,5 @@
 #include <candidatos.hpp>
-#include <urna.hpp>
-#include <cstdio>
+
 using namespace std;
 Candidato::Candidato(){
 }
@@ -18,12 +17,8 @@ int Candidato::size(FILE *info){ //retorna a quantidade de caracteres que serão
 	return tamanho;
 }
 void Candidato::registro_candidatos(FILE *info){
-	/*if(info == NULL){
-		throw(1);
-	}*/
 	while(fgetc(info)!='\n');
 	char aux[43];
-	int n;
 	int i = 0;
 	while(i < 32){
 		if(i == 12){
@@ -38,9 +33,8 @@ void Candidato::registro_candidatos(FILE *info){
 		}
 		if(i==16){
 			qtd = Candidato::size(info);
-			fscanf(info, "%d", &n);
-			//fgets(aux, qtd, info);
-			Candidato::set_numeroUrna(n);
+			fgets(aux, qtd, info);
+			Candidato::set_numeroUrna(aux);
 		}
 		if(i == 17){
 			qtd = Candidato::size(info);
@@ -102,10 +96,10 @@ string Candidato::get_lema(){
 }
 
 
-void Candidato::set_numeroUrna(int numeroUrna){
+void Candidato::set_numeroUrna(char numeroUrna[5]){
 	this->numeroUrna = numeroUrna;
 }
-int Candidato::get_numeroUrna(){
+string Candidato::get_numeroUrna(){
 	return numeroUrna;
 }
 

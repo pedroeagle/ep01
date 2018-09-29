@@ -1,14 +1,16 @@
 #ifndef candidatos_hpp
 #define candidatos_hpp
 #include <urna.hpp>
+#include <cstdio>
 #include <iostream>
+
 using namespace std;
 
 class Candidato{//classe que armazenará todas as informações de cada candidato
 private:
 	short qtd;
-	int votos, numeroUrna;
-	string cargo, nomeCandidato, partido, lema, nm_ue;
+	int votos;
+	string cargo, nomeCandidato, partido, lema, nm_ue, numeroUrna;
 public:
 	Candidato(); //Método Construtor
 	~Candidato(); //Método Destrutor
@@ -25,12 +27,12 @@ public:
 	string get_partido();
 	void set_lema(char lema[43]);
 	string get_lema();
-	void set_numeroUrna(int numeroUrna);
-	int get_numeroUrna();
+	void set_numeroUrna(char numeroUrna[5]);
+	string get_numeroUrna();
 	void set_votos();
 	int get_votos();
 	void set_nm_ue(char nm_ue[18]);
 	string get_nm_ue();
-	};										
+	};							
 																				
 #endif

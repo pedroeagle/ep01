@@ -3,7 +3,9 @@
 #include <urna.hpp>
 #include <cstdio>
 #include <string>
+#include <string.h>
 #include <stdlib.h>
+
 using namespace std;
 int main(){
 	Urna urna;
@@ -17,13 +19,13 @@ int main(){
 		getchar();
 		system("clear");
 		char aux[43];
-		int voto;
+		char voto[8];
 		bool check = 1;
 		Eleitor *eleitor[1000];
 		for(int i = 0; i < n; i++){
 			eleitor[i] = new Eleitor();
 			cout<<"Mesário, por favor, digite o nome do eleitor e pressione ENTER:"<<endl;
-			fgets(aux, 42, stdin);
+			fgets(aux, 43, stdin);
 			system("clear");
 			eleitor[i]->set_nome(aux);
 			cout<<"                         		ELEIÇÕES - 2018"<<endl;
@@ -81,6 +83,8 @@ int main(){
 				getchar();
 				check = urna.votacaoBR("PRESIDENTE", voto);
 			}
+			cout<<"Senhor(a) "<<eleitor[i]->get_nome()<<", obrigado pela participação.\n\n\n\nMesário, pressione ENTER para continuar."<<endl;
+			getchar();
 			system("clear");	
 		}
 		break;
