@@ -32,8 +32,72 @@ void Urna::leitura_de_dadosDF(const char *path){
 int Urna::votacaoDF(const string cargo, const int voto){
 	char aux;
 	for(int i = 0; i <= 1236; i++){
-		if(cargo == candidatosDF[i]->get_cargo() && voto == candidatosDF[i]->get_numeroUrna()){
-			candidatosDF[i]->set_votos();
+		if(cargo == "DEPUTADO DISTRITAL" && voto == 00000){
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::branco[0]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "DEPUTADO FEDERAL" && voto == 0000){
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::branco[1]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "SENADOR" && voto == 000){
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::branco[2]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "GOVERNADOR" && voto == 00){
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::branco[3]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+
+		else if(cargo == candidatosDF[i]->get_cargo() && voto == candidatosDF[i]->get_numeroUrna()){
 			candidatosDF[i]->imprimir_dados();
 			cout<<endl;
 			cout<<endl;
@@ -46,6 +110,7 @@ int Urna::votacaoDF(const string cargo, const int voto){
 					return 1;
 				}
 				else if(aux == 'C'){
+					candidatosDF[i]->set_votos();
 					system("clear");
 					return 0;
 				}
@@ -60,8 +125,23 @@ int Urna::votacaoDF(const string cargo, const int voto){
 int Urna::votacaoBR(const string cargo, const int voto){
 	char aux;
 	for(int i = 0; i <= 25; i++){
-		if(cargo == candidatosBR[i]->get_cargo() && voto == candidatosBR[i]->get_numeroUrna()){
-			candidatosBR[i]->set_votos();
+		if(cargo == "PRESIDENTE" && voto == 00){
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::branco[4]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == candidatosBR[i]->get_cargo() && voto == candidatosBR[i]->get_numeroUrna()){
 			candidatosBR[i]->imprimir_dados();
 			cout<<endl;
 			cout<<endl;
@@ -74,6 +154,7 @@ int Urna::votacaoBR(const string cargo, const int voto){
 					return 1;
 				}
 				else if(aux == 'C'){
+					candidatosBR[i]->set_votos();
 					system("clear");
 					return 0;
 				}
