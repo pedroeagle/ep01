@@ -7,6 +7,7 @@
 #include <stdlib.h>
 
 using namespace std;
+
 int main(){
 	Urna urna;
 	urna.leitura_de_dadosBR("data/consulta_cand_2018_BR.csv");
@@ -16,6 +17,7 @@ int main(){
 		system("clear");
 		cout<<"Mesário, por favor, digite a quantidade de eleitores e pressione ENTER:"<<endl;
 		cin>>n;
+		urna.set_eleitores(n);
 		getchar();
 		system("clear");
 		char aux[43];
@@ -27,7 +29,7 @@ int main(){
 			cout<<"Mesário, por favor, digite o nome do eleitor e pressione ENTER:"<<endl;
 			fgets(aux, 43, stdin);
 			system("clear");
-			eleitor[i]->set_nome(aux);
+			eleitor[i]->registro(aux);
 			cout<<"                         		ELEIÇÕES - 2018"<<endl;
 			cout<<"Instruções para votação:\n"<<endl;
 			cout<<"- Fique atento ao cargo a qual estará votando em cada passo.\n"<<endl;
@@ -39,12 +41,14 @@ int main(){
 			cout<<"\n 				Pressione ENTER para continuar.\n"<<endl;
 			getchar();
 			system("clear");
+			check = 1;
 			while(check){
 				cout<<"SEU VOTO PARA"<<endl;
 				cout<<"			DEPUTADO DISTRITAL (5 dígitos)"<<endl;
 				cout<<"NÚMERO: ";
 				cin>>voto;
 				getchar();
+				eleitor[i]->set_votoDistrital(voto);
 				check = urna.votacaoDF("DEPUTADO DISTRITAL", voto);
 			}
 			check = 1;
@@ -54,6 +58,7 @@ int main(){
 				cout<<"NÚMERO: ";
 				cin>>voto;
 				getchar();
+				eleitor[i]->set_votoFederal(voto);
 				check = urna.votacaoDF("DEPUTADO FEDERAL", voto);
 			}
 			check = 1;
@@ -63,6 +68,7 @@ int main(){
 				cout<<"NÚMERO: ";
 				cin>>voto;
 				getchar();
+				eleitor[i]->set_votoSenador(voto);
 				check = urna.votacaoDF("SENADOR", voto);
 			}
 			check = 1;
@@ -72,6 +78,7 @@ int main(){
 				cout<<"NÚMERO: ";
 				cin>>voto;
 				getchar();
+				eleitor[i]->set_votoGovernador(voto);
 				check = urna.votacaoDF("GOVERNADOR", voto);
 			}
 			check = 1;
@@ -81,11 +88,17 @@ int main(){
 				cout<<"NÚMERO: ";
 				cin>>voto;
 				getchar();
+				eleitor[i]->set_votoPresidente(voto);
 				check = urna.votacaoBR("PRESIDENTE", voto);
 			}
 			cout<<"Senhor(a) "<<eleitor[i]->get_nome()<<", obrigado pela participação.\n\n\n\nMesário, pressione ENTER para continuar."<<endl;
 			getchar();
-			system("clear");	
+			system("clear");
+		}
+		cout<<"Resultado:\n"<<endl;
+		cout<<"Eleitor:"<<"		"<<"Distrital:"<<"		"<<"Estadual:"<<"		"<<"Senador:"<<"		"<<"Governador:"<<"		"<<"Presidente:"<<endl;
+		for(int i = 0; i < urna.get_eleitores(); i++){
+			eleitor[i]->resultado();
 		}
 		break;
 	}

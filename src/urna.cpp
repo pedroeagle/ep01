@@ -3,6 +3,18 @@
 
 using namespace std;
 
+Urna::Urna(){
+	for(int i = 0; i < 5; i++){
+		branco[i] = 0;
+		nulo[i] = 0;
+	}
+	eleitores = 0;
+}
+Urna::~Urna(){
+
+}
+void Urna::registro(){
+}
 Candidato *candidatosDF[1237];
 Candidato *candidatosBR[26];
 void Urna::leitura_de_dadosBR(const char *path){
@@ -13,7 +25,7 @@ void Urna::leitura_de_dadosBR(const char *path){
 	
 	for(int i = 0; i <= 25; i++){
 		candidatosBR[i] = new Candidato();
-		candidatosBR[i]->registro_candidatos(info);
+		candidatosBR[i]->registro(info);
 	}
 }
 void Urna::leitura_de_dadosDF(const char *path){
@@ -24,7 +36,7 @@ void Urna::leitura_de_dadosDF(const char *path){
 	
 	for(int i = 0; i <= 1236; i++){
 		candidatosDF[i] = new Candidato();
-		candidatosDF[i]->registro_candidatos(info);
+		candidatosDF[i]->registro(info);
 	}
 }
 int Urna::votacaoDF(const string cargo, const char *votoX){
@@ -278,20 +290,12 @@ int Urna::votacaoBR(const string cargo, const char *votoX){
 	cout<<"Candidato não encontrado. Tente novamente."<<endl;
 	return 1;
 }
-int Urna::resultado(){
-	cout<<"Mesário, pressione R e logo após, ENTER, para visualizar e finalizar a seção."<<endl;
-	cout<<"Pressione X e logo após, ENTER, para finalizar a seção sem visualizar o resultado."<<endl;
-	char aux;
-	while(1){
-		aux = toupper(getchar());
-		getchar();
-		if(aux == 'X'){
-			system("clear");
-			return 0;
-		}
-		else if(aux == 'R'){
-			system("clear");
-			return 1;
-		}
-	}
+void Urna::set_eleitores(int qtd){
+	eleitores = qtd;
+}
+int Urna::get_eleitores(){
+	return eleitores;
+}
+void Urna::resultado(){
+
 }

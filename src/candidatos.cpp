@@ -16,7 +16,7 @@ int Candidato::size(FILE *info){ //retorna a quantidade de caracteres que serão
 	fseek(info, inicio, SEEK_SET);
 	return tamanho;
 }
-void Candidato::registro_candidatos(FILE *info){
+void Candidato::registro(FILE *info){
 	while(fgetc(info)!='\n');
 	char aux[43];
 	int i = 0;
@@ -56,6 +56,7 @@ void Candidato::registro_candidatos(FILE *info){
 		i++;
 	}
 }
+
 void Candidato::imprimir_dados(){
 	cout<<"Nome: "<<nomeCandidato<<endl;
 	cout<<"Partido: "<<partido<<endl;

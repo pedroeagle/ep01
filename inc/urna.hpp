@@ -8,15 +8,19 @@
 using namespace std;
 class Urna{
 private:
-	int branco[5], nulo[5];
+	int branco[5], nulo[5], eleitores;
 	string nome;
 public:
-
-	int votacaoBR(const string cargo, const char *votoX);
-	int votacaoDF(const string cargo, const char *votoX);
+	virtual void registro();
+	Urna();
+	~Urna();
 	void leitura_de_dadosBR(const char *path);
 	void leitura_de_dadosDF(const char *path);
-	int resultado();
+	int votacaoBR(const string cargo, const char *votoX);
+	int votacaoDF(const string cargo, const char *votoX);
+	void set_eleitores(int qtd);
+	int get_eleitores();
+	virtual void resultado();
 };
 
 

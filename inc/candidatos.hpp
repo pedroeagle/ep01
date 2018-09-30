@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Candidato{//classe que armazenará todas as informações de cada candidato
+class Candidato: public Urna{//classe que armazenará todas as informações de cada candidato
 private:
 	short qtd;
 	int votos;
@@ -14,9 +14,10 @@ private:
 public:
 	Candidato(); //Método Construtor
 	~Candidato(); //Método Destrutor
-	void registro_candidatos(FILE *info);	
+	void registro(FILE *info); //método herdado e sobrecarregado
 	void imprimir_dados();
 	int size(FILE *info);
+
 
 	//getters and setters
 	void set_cargo(char cargo[43]);
