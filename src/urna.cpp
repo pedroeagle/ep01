@@ -15,8 +15,8 @@ Urna::~Urna(){
 }
 void Urna::registro(){
 }
-Candidato *candidatosDF[1237];
-Candidato *candidatosBR[26];
+Candidato candidatosDF[1237];
+Candidato candidatosBR[26];
 void Urna::leitura_de_dadosBR(const char *path){
 	FILE *info = fopen(path, "r");
 	if(info == NULL){
@@ -24,8 +24,8 @@ void Urna::leitura_de_dadosBR(const char *path){
 	}
 	
 	for(int i = 0; i <= 25; i++){
-		candidatosBR[i] = new Candidato();
-		candidatosBR[i]->registro(info);
+		//candidatosBR[i] = new Candidato();
+		candidatosBR[i].registro(info);
 	}
 }
 void Urna::leitura_de_dadosDF(const char *path){
@@ -35,8 +35,8 @@ void Urna::leitura_de_dadosDF(const char *path){
 	}
 	
 	for(int i = 0; i <= 1236; i++){
-		candidatosDF[i] = new Candidato();
-		candidatosDF[i]->registro(info);
+		//candidatosDF[i] = new Candidato();
+		candidatosDF[i].registro(info);
 	}
 }
 int Urna::votacaoDF(const string cargo, const char *votoX){
@@ -194,8 +194,8 @@ int Urna::votacaoDF(const string cargo, const char *votoX){
 				}
 			}
 		}
-		else if(cargo == candidatosDF[i]->get_cargo() && voto == candidatosDF[i]->get_numeroUrna()){
-			candidatosDF[i]->imprimir_dados();
+		else if(cargo == candidatosDF[i].get_cargo() && voto == candidatosDF[i].get_numeroUrna()){
+			candidatosDF[i].imprimir_dados();
 			cout<<endl;
 			cout<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
@@ -207,7 +207,7 @@ int Urna::votacaoDF(const string cargo, const char *votoX){
 					return 1;
 				}
 				else if(aux == 'C'){
-					candidatosDF[i]->set_votos();
+					candidatosDF[i].set_votos();
 					system("clear");
 					return 0;
 				}
@@ -265,8 +265,8 @@ int Urna::votacaoBR(const string cargo, const char *votoX){
 				}
 			}
 		}
-		else if(cargo == candidatosBR[i]->get_cargo() && voto == candidatosBR[i]->get_numeroUrna()){
-			candidatosBR[i]->imprimir_dados();
+		else if(cargo == candidatosBR[i].get_cargo() && voto == candidatosBR[i].get_numeroUrna()){
+			candidatosBR[i].imprimir_dados();
 			cout<<endl;
 			cout<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
@@ -278,7 +278,7 @@ int Urna::votacaoBR(const string cargo, const char *votoX){
 					return 1;
 				}
 				else if(aux == 'C'){
-					candidatosBR[i]->set_votos();
+					candidatosBR[i].set_votos();
 					system("clear");
 					return 0;
 				}
