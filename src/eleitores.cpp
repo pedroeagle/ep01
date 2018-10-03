@@ -109,5 +109,5 @@ string Eleitor::get_votoDistrital(){
 }
 
 void Eleitor::resultado(){
-	cout<<nome<<"		"<<votoDistrital<<"		"<<votoEstadual<<"		"<<votoSenador1<<"		"<<votoSenador2<<"		"<<votoGovernador<<"		"<<votoPresidente<<endl;
+	cout<<nome<<"		"<<votoEstadual<<"		"<<votoDistrital<<"		"<<votoSenador1<<"		"<<votoSenador2<<"		"<<votoGovernador<<"		"<<votoPresidente<<endl;
 }

@@ -328,66 +328,66 @@ void Urna::resultado(){
 	cout<<"	DEPUTADO FEDERAL: "<<endl;
 	for(int i = 0; i <= 1236; i++){
 		if(candidatosDF[i].get_votos() > 0 && candidatosDF[i].get_cargo() == "DEPUTADO FEDERAL"){
-			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<(candidatosDF[i].get_votos()/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<(candidatosDF[i].get_votos()/(eleitores*1.0))*100.0<<"%"<<endl;
 		}	
 	}
 	if(branco[0] > 0){
-		cout<<"	"<<"BRANCO: "<<(branco[0]/eleitores)*100.0<<"%"<<endl;
+		cout<<"	"<<"BRANCO: "<<(branco[0]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	if(nulo[0] > 0){
-			cout<<"	"<<"NULO: "<<(nulo[0]/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<"NULO: "<<(nulo[0]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	cout<<endl;
 	cout<<"	DEPUTADO DISTRITAL: "<<endl;
 	for(int i = 0; i <= 1236; i++){
 		if(candidatosDF[i].get_votos() > 0 && candidatosDF[i].get_cargo() == "DEPUTADO DISTRITAL"){
-			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<(candidatosDF[i].get_votos()/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<(candidatosDF[i].get_votos()/(eleitores*1.0))*100.0<<"%"<<endl;
 		}
 	}
 	if(branco[1] > 0){
-		cout<<"	"<<"BRANCO: "<<(branco[1]/eleitores)*100.0<<"%"<<endl;
+		cout<<"	"<<"BRANCO: "<<(branco[1]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	if(nulo[1] > 0){
-			cout<<"	"<<"NULO: "<<(nulo[1]/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<"NULO: "<<(nulo[1]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	cout<<endl;
 	cout<<"	SENADOR: "<<endl;
 	for(int i = 0; i <= 1236; i++){
 		if(candidatosDF[i].get_votos() > 0 && candidatosDF[i].get_cargo() == "SENADOR"){
-			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<((candidatosDF[i].get_votos()/2.0)/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<((candidatosDF[i].get_votos()/2.0)/(eleitores*1.0))*100.0<<"%"<<endl;
 		}
 	}
 	if(branco[2] > 0){
-		cout<<"	"<<"BRANCO: "<<((branco[2]/2)/eleitores)*100.0<<"%"<<endl;
+		cout<<"	"<<"BRANCO: "<<((branco[2]/2.0)/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	if(nulo[2] > 0){
-			cout<<"	"<<"NULO: "<<((nulo[2]/2)/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<"NULO: "<<((nulo[2]/2.0)/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	cout<<endl;
 	cout<<"	GOVERNADOR: "<<endl;
 	for(int i = 0; i <= 1236; i++){
 		if(candidatosDF[i].get_votos() > 0 && candidatosDF[i].get_cargo() == "GOVERNADOR"){
-			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<(candidatosDF[i].get_votos()/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<candidatosDF[i].get_nomeCandidato()<<": "<<(candidatosDF[i].get_votos()/(eleitores*1.0))*100.0<<"%"<<endl;
 		}
 	}
 	if(branco[3] > 0){
-		cout<<"	"<<"BRANCO: "<<(branco[3]/eleitores)*100.0<<"%"<<endl;
+		cout<<"	"<<"BRANCO: "<<(branco[3]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	if(nulo[3] > 0){
-			cout<<"	"<<"NULO: "<<(nulo[3]/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<"NULO: "<<(nulo[3]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	cout<<endl;
 	cout<<"	PRESIDENTE: "<<endl;
 	for(int i = 0; i <= 25; i++){
 		if(candidatosBR[i].get_votos() > 0 && candidatosBR[i].get_cargo() == "PRESIDENTE"){
-			cout<<"	"<<candidatosBR[i].get_nomeCandidato()<<": "<<(candidatosBR[i].get_votos()/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<candidatosBR[i].get_nomeCandidato()<<": "<<(candidatosBR[i].get_votos()/(eleitores*1.0))*100.0<<"%"<<endl;
 		}
 	}
 	if(branco[4] > 0){
-		cout<<"	"<<"BRANCO: "<<(branco[4]/eleitores)*100.0<<"%"<<endl;
+		cout<<"	"<<"BRANCO: "<<(branco[4]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	if(nulo[4] > 0){
-			cout<<"	"<<"NULO: "<<(nulo[4]/eleitores)*100.0<<"%"<<endl;
+			cout<<"	"<<"NULO: "<<(nulo[4]/(eleitores*1.0))*100.0<<"%"<<endl;
 	}
 	cout<<endl;
 }

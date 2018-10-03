@@ -122,7 +122,7 @@ int main(){
 			system("clear");
 		}
 		cout<<"RESULTADO INDIVIDUAL LOCAL:\n"<<endl;
-		cout<<"Eleitor:"<<"	"<<"Distrital:"<<"	"<<"Estadual:"<<"	"<<"1º Senador:"<<"	"<<"2º Senador:"<<"	"<<"Governador:"<<"	"<<"Presidente:"<<endl;
+		cout<<"Eleitor:"<<"	"<<"Federal:"<<"	"<<"Distrital:"<<"	"<<"1º Senador:"<<"	"<<"2º Senador:"<<"	"<<"Governador:"<<"	"<<"Presidente:"<<endl;
 		for(int i = 0; i < urna.get_eleitores(); i++){
 			eleitor[i].resultado();
 		}
