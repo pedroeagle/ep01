@@ -38,7 +38,7 @@ Para entrar na pasta criada:
 ![alt](images/eleitor.png)
 
 ## Segundo passo: Digitar o nome do eleitor que irá votar:
-![alt](images/nome_do_eleitor.png)
+![alt](images/nome_do_eleitores.png)
 
 
 ## Será mostrada uma tela de informações para a votação:
@@ -70,6 +70,6 @@ Para entrar na pasta criada:
 ## Após terminar todas as sessões é mostrado um relatório de voto das pessoas e o resultado da eleição:
 ![alt](images/resultado.png)
 
-##Bugs e Problemas
+## Bugs e Problemas
 Ainda não foram relatados. Porém caso encontre, sinta-se a vontade em corrigir/relatar.
-##Referências
+## Referências
