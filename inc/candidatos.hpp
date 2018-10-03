@@ -10,6 +10,7 @@ class Candidato: public Urna{//classe que armazenará todas as informações de 
 private:
 	short qtd;
 	int votos;
+	double porcentagem;
 	string cargo, nomeCandidato, partido, lema, nm_ue, numeroUrna;
 public:
 	Candidato(); //Método Construtor
@@ -35,6 +36,8 @@ public:
 	int get_votos();
 	void set_nm_ue(char nm_ue[18]);
 	string get_nm_ue();
+	void set_porcentagem(double x);
+	double get_porcentagem();
 	};							
 																				
 #endif

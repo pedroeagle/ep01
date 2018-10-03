@@ -2,6 +2,7 @@
 
 using namespace std;
 Candidato::Candidato(){
+	porcentagem = 0.0;
 }
 Candidato::~Candidato(){
 }
@@ -118,4 +119,10 @@ void Candidato:: set_nm_ue(char nm_ue[18]){
 }
 string Candidato::get_nm_ue(){
 	return nm_ue;
+}
+void Candidato::set_porcentagem(double x){
+	this->porcentagem = x;
+}
+double Candidato::get_porcentagem(){
+	return porcentagem;
 }
