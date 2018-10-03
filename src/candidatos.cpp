@@ -63,8 +63,11 @@ void Candidato::imprimir_dados(){
 	cout<<"Lema: "<<lema<<endl;
 	cout<<"Cargo: "<<cargo<<" do "<<nm_ue<<endl;	
 }
-
-
+void Candidato::imprimir_dados_SV(){
+	cout<<endl;
+	cout<<cargo<<":"<<endl;
+	cout<<"	"<<nomeCandidato<<endl;
+}
 void Candidato::set_cargo(char cargo[43]){
 	this->cargo = cargo;
 }

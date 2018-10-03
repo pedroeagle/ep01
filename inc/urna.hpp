@@ -21,6 +21,7 @@ public:
 	void set_eleitores(int qtd);
 	int get_eleitores();
 	virtual void resultado();
+	
 };
 
 

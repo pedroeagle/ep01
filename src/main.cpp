@@ -45,16 +45,6 @@ int main(){
 			check = 1;
 			while(check){
 				cout<<"SEU VOTO PARA"<<endl;
-				cout<<"			DEPUTADO DISTRITAL (5 dígitos)"<<endl;
-				cout<<"NÚMERO: ";
-				cin>>voto;
-				getchar();
-				eleitor[i].set_votoDistrital(voto);
-				check = urna.votacaoDF("DEPUTADO DISTRITAL", voto);
-			}
-			check = 1;
-			while(check){
-				cout<<"SEU VOTO PARA"<<endl;
 				cout<<"			DEPUTADO FEDERAL (4 dígitos)"<<endl;
 				cout<<"NÚMERO: ";
 				cin>>voto;
@@ -62,15 +52,50 @@ int main(){
 				eleitor[i].set_votoFederal(voto);
 				check = urna.votacaoDF("DEPUTADO FEDERAL", voto);
 			}
+
 			check = 1;
 			while(check){
 				cout<<"SEU VOTO PARA"<<endl;
-				cout<<"			SENADOR (3 dígitos)"<<endl;
+				cout<<"			DEPUTADO DISTRITAL (5 dígitos)"<<endl;
 				cout<<"NÚMERO: ";
 				cin>>voto;
 				getchar();
-				eleitor[i].set_votoSenador(voto);
+				eleitor[i].set_votoDistrital(voto);
+				check = urna.votacaoDF("DEPUTADO DISTRITAL", voto);
+			}
+			
+			check = 1;
+			while(check){
+				cout<<"SEU VOTO PARA"<<endl;
+				cout<<"			1º SENADOR (3 dígitos)"<<endl;
+				cout<<"NÚMERO: ";
+				cin>>voto;
+				getchar();
+				eleitor[i].set_votoSenador1(voto);
 				check = urna.votacaoDF("SENADOR", voto);
+			}
+			check = 1;
+			while(check){
+				cout<<"SEU VOTO PARA"<<endl;
+				cout<<"			2º SENADOR (3 dígitos)"<<endl;
+				cout<<"NÚMERO: ";
+				cin>>voto;
+				getchar();
+				char votoX[8];
+				if(voto[0] >= 'A'){
+					for(int j = 0; voto[j]!='\0'; j++){
+						votoX[j] = toupper(voto[j]);
+					}
+					strcpy(voto, votoX);
+				}
+				if(voto != eleitor[i].get_votoSenador1() || strcmp(voto, "000")==0 || strcmp(voto, "BRANCO") == 0){
+					eleitor[i].set_votoSenador2(voto);
+					check = urna.votacaoDF("SENADOR", voto);
+				}
+				else{
+					system("clear");
+					cout<<"Você não pode votar novamente para esse candidato. Tente novamente com outro dígito."<<endl;
+				}
 			}
 			check = 1;
 			while(check){
@@ -97,7 +122,7 @@ int main(){
 			system("clear");
 		}
 		cout<<"Resultado:\n"<<endl;
-		cout<<"Eleitor:"<<"		"<<"Distrital:"<<"		"<<"Estadual:"<<"		"<<"Senador:"<<"		"<<"Governador:"<<"		"<<"Presidente:"<<endl;
+		cout<<"Eleitor:"<<"	"<<"Distrital:"<<"	"<<"Estadual:"<<"	"<<"1º Senador:"<<"	"<<"2º Senador:"<<"	"<<"Governador:"<<"	"<<"Presidente:"<<endl;
 		for(int i = 0; i < urna.get_eleitores(); i++){
 			eleitor[i].resultado();
 		}

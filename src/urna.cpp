@@ -46,13 +46,50 @@ int Urna::votacaoDF(const string cargo, const char *votoX){
 		for(int j = 0; votoX[j]!='\0'; j++){
 			voto[j] = toupper(votoX[j]);
 		}
+		voto[6] = '\0';
 	}
 	else{
 		strcpy(voto, votoX);
 	}
 	for(int i = 0; i <= 1236; i++){
+		//DEPUTADO FEDERAL: BRANCOS E NULOS
+		if(cargo == "DEPUTADO FEDERAL" && strcmp(voto, "0000") == 0){
+			cout<<"Voto NULO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::nulo[1]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+		else if(cargo == "DEPUTADO FEDERAL" && !strcmp(voto, "BRANCO")){
+			cout<<"Voto BRANCO.\n"<<endl;
+			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
+			while(1){
+				aux = toupper(getchar());
+				getchar();
+				if(aux == 'X'){
+					system("clear");
+					return 1;
+				}
+				else if(aux == 'C'){
+					Urna::branco[1]++;
+					system("clear");
+					return 0;
+				}
+			}
+		}
+
 		//DEPUTADO DISTRITAL: BRANCOS E NULOS:
-		if(cargo == "DEPUTADO DISTRITAL" && strcmp(voto, "00000") == 0){
+		else if(cargo == "DEPUTADO DISTRITAL" && strcmp(voto, "00000") == 0){
 			cout<<"Voto NULO.\n"<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
@@ -86,43 +123,6 @@ int Urna::votacaoDF(const string cargo, const char *votoX){
 				}
 			}
 		}
-
-		//DEPUTADO FEDERAL: BRANCOS E NULOS
-		else if(cargo == "DEPUTADO FEDERAL" && strcmp(voto, "0000") == 0){
-			cout<<"Voto NULO.\n"<<endl;
-			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
-			while(1){
-				aux = toupper(getchar());
-				getchar();
-				if(aux == 'X'){
-					system("clear");
-					return 1;
-				}
-				else if(aux == 'C'){
-					Urna::nulo[1]++;
-					system("clear");
-					return 0;
-				}
-			}
-		}
-		else if(cargo == "DEPUTADO FEDERAL" && strcmp(voto, "BRANCO") == 0){
-			cout<<"Voto BRANCO.\n"<<endl;
-			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
-			while(1){
-				aux = toupper(getchar());
-				getchar();
-				if(aux == 'X'){
-					system("clear");
-					return 1;
-				}
-				else if(aux == 'C'){
-					Urna::branco[1]++;
-					system("clear");
-					return 0;
-				}
-			}
-		}
-
 		//SENADOR: BRANCOS E NULOS
 		else if(cargo == "SENADOR" && strcmp(voto, "000") == 0){
 			cout<<"Voto NULO.\n"<<endl;
@@ -195,7 +195,23 @@ int Urna::votacaoDF(const string cargo, const char *votoX){
 			}
 		}
 		else if(cargo == candidatosDF[i].get_cargo() && voto == candidatosDF[i].get_numeroUrna()){
+			char suplente[10];
 			candidatosDF[i].imprimir_dados();
+			if(cargo == "SENADOR"){
+				for(int g = 0; g <= 1236; g++){
+					suplente[0] = candidatosDF[g].get_cargo()[0];
+					for(int h = 1; h <= 8; h++){
+						suplente[h] = candidatosDF[g].get_cargo()[h+2];
+					}
+					suplente[9]='\0';
+					if(strcmp(suplente, "1SUPLENTE") == 0 && voto == candidatosDF[g].get_numeroUrna()){
+						candidatosDF[g].imprimir_dados_SV();
+					}
+					else if(strcmp(suplente, "2SUPLENTE") == 0 && voto == candidatosDF[g].get_numeroUrna()){
+						candidatosDF[g].imprimir_dados_SV();
+					}
+				}
+			}
 			cout<<endl;
 			cout<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;

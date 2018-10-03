@@ -16,6 +16,7 @@ public:
 	~Candidato(); //Método Destrutor
 	void registro(FILE *info); //método herdado e sobrecarregado
 	void imprimir_dados();
+	void imprimir_dados_SV();
 	int size(FILE *info);
 
 
