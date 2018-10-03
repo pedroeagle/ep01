@@ -35,10 +35,10 @@ Para entrar na pasta criada:
 
 ## Primeiro passo: Digitar a quantidade de eleitores que participarão da sessão:
 
-![alt](images/eleitor.png)
+![alt](images/eleitores.png)
 
 ## Segundo passo: Digitar o nome do eleitor que irá votar:
-![alt](images/nome_do_eleitores.png)
+![alt](images/nome_do_eleitor.png)
 
 
 ## Será mostrada uma tela de informações para a votação:
