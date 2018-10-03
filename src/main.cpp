@@ -126,6 +126,7 @@ int main(){
 		for(int i = 0; i < urna.get_eleitores(); i++){
 			eleitor[i].resultado();
 		}
+		cout<<endl;
 		urna.resultado();
 		delete [] eleitor;
 		break;
