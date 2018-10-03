@@ -212,6 +212,14 @@ int Urna::votacaoDF(const string cargo, const char *votoX){
 					}
 				}
 			}
+			else if(cargo == "GOVERNADOR"){
+				for(int i = 0; i <= 1236; i++){
+					if(candidatosDF[i].get_cargo() == "VICE-GOVERNADOR" && voto == candidatosDF[i].get_numeroUrna()){
+						candidatosDF[i].imprimir_dados_SV();
+					}
+				}
+
+			}
 			cout<<endl;
 			cout<<endl;
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
@@ -283,8 +291,11 @@ int Urna::votacaoBR(const string cargo, const char *votoX){
 		}
 		else if(cargo == candidatosBR[i].get_cargo() && voto == candidatosBR[i].get_numeroUrna()){
 			candidatosBR[i].imprimir_dados();
-			cout<<endl;
-			cout<<endl;
+			for(int j = 0; j <= 26; j++){
+					if(candidatosBR[j].get_cargo() == "VICE-PRESIDENTE" && voto == candidatosBR[j].get_numeroUrna()){
+						candidatosBR[j].imprimir_dados_SV();
+					}
+				}
 			cout<<"Pressione C para confirmar e X para corrigir. Logo após pressione ENTER.\n"<<endl;
 			while(1){
 				aux = toupper(getchar());
